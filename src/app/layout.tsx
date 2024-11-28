@@ -40,7 +40,7 @@ export default function RootLayout({children}:{children:ReactNode}){
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <Navbar/>
-            <Container maxWidth={'sm'} sx={{pt:1}}>
+            <Container maxWidth={'sm'} sx={{pt:10}}>
               {children}
             </Container>
         </ThemeProvider>

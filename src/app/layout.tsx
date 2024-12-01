@@ -9,6 +9,9 @@ import {Roboto} from 'next/font/google'
 import theme from "@/Theme";
 import Navbar from "./_Components/Navbar/page.tsx";
 import { Container } from "@mui/material";
+import { Provider } from "react-redux";
+import { store } from "../redux/store.ts";
+import { Toaster } from "react-hot-toast";
 
 
 const roboto = Roboto({
@@ -37,14 +40,17 @@ export default function RootLayout({children}:{children:ReactNode}){
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable}`}>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <Navbar/>
-            <Container maxWidth={'sm'} sx={{pt:10}}>
-              {children}
-            </Container>
-        </ThemeProvider>
-        </AppRouterCacheProvider>
+        <Provider store={store}>
+          <AppRouterCacheProvider>
+            <ThemeProvider theme={theme}>
+              <Navbar/>
+              <Container maxWidth={'sm'} sx={{pt:10}}>
+                {children}
+              </Container>
+              <Toaster/>
+          </ThemeProvider>
+          </AppRouterCacheProvider>
+        </Provider>
       </body>
     </html>
   );

@@ -74,6 +74,11 @@ export default function Navbar() {
     setMobileMoreAnchorEl(null);
   };
   const router = useRouter()
+  function logOut(){
+    localStorage.removeItem('token')
+    router.push('/login')
+    handleMenuClose()
+  }
   const handleMenuClose = () => {
     router.push('/login')
     setAnchorEl(null);
@@ -103,7 +108,7 @@ export default function Navbar() {
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>Login</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Log out</MenuItem>
+      <MenuItem onClick={logOut}>Log out</MenuItem>
     </Menu>
   );
 

@@ -79,8 +79,8 @@ export default function Navbar() {
     router.push('/login')
     handleMenuClose()
   }
-  const handleMenuClose = () => {
-    router.push('/login')
+  const handleMenuClose = (path:string) => {
+    router.push(path)
     setAnchorEl(null);
     handleMobileMenuClose();
   };
@@ -106,8 +106,8 @@ export default function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Login</MenuItem>
+      <MenuItem onClick={()=>handleMenuClose('/profile')}>Profile</MenuItem>
+      <MenuItem onClick={()=>handleMenuClose('/login')}>Login</MenuItem>
       <MenuItem onClick={logOut}>Log out</MenuItem>
     </Menu>
   );

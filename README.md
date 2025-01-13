@@ -24,6 +24,20 @@ A **frontend-only** social media web application built with **Next.js**. This ap
 
 ## 📂 Folder Structure
 ![s](https://github.com/user-attachments/assets/db835808-2fc2-4d9d-a1dc-a5ee26fd25a6)
+videos
+
+
+https://github.com/user-attachments/assets/7eba3776-afa1-434f-8fdb-a004faf8c698
+
+
+🙌 Contributing
+Fork the repository.
+Create your feature branch: git checkout -b feature/YourFeature
+Commit your changes: git commit -m 'Add some feature'
+Push to the branch: git push origin feature/YourFeature
+Open a pull request.
+📄 License
+This project is licensed under the MIT License.
 
 
 ## ⚙️ Installation
@@ -39,17 +53,3 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 
-videos
-
-
-https://github.com/user-attachments/assets/7eba3776-afa1-434f-8fdb-a004faf8c698
-
-
-🙌 Contributing
-Fork the repository.
-Create your feature branch: git checkout -b feature/YourFeature
-Commit your changes: git commit -m 'Add some feature'
-Push to the branch: git push origin feature/YourFeature
-Open a pull request.
-📄 License
-This project is licensed under the MIT License.

@@ -34,6 +34,11 @@ A **frontend-only** social media web application built with **Next.js**. This ap
 git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
 
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
 videos
 
 
@@ -48,5 +53,3 @@ Push to the branch: git push origin feature/YourFeature
 Open a pull request.
 📄 License
 This project is licensed under the MIT License.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

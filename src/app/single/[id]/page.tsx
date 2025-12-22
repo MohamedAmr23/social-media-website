@@ -2,10 +2,10 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { storeDispatch, storeState } from '../../../redux/store.js'
-import { getSinglePost } from '../../../redux/Slice/postsSlice.ts'
+import { getSinglePost } from '../../../redux/Slice/postsSlice'
 
-import PostDetails from '../../_Components/postdetails/PostDetails.tsx'
-import Loading from '../../loading.tsx'
+import PostDetails from '../../_Components/postdetails/PostDetails'
+import Loading from '../../loading'
 import { Post } from '../../../interfaces/postinterface.js'
 
 const SinglePost = ({params:{id}}:{params:{id:string}}) => {

@@ -8,10 +8,9 @@ import {
 } from "@mui/material";
 import { LoginData } from "../../interfaces/login.js";
 import { useFormik } from "formik";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { storeDispatch, storeState } from "../../redux/store.ts";
-import { login } from "../../redux/Slice/login.tsx";
+import { storeDispatch, storeState } from "../../redux/store";
+import { login } from "../../redux/Slice/login";
 import { useRouter } from "next/navigation.js";
 import toast from "react-hot-toast";
 import { useEffect } from "react";

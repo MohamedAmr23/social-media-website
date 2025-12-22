@@ -2,10 +2,10 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { storeDispatch, storeState } from "../redux/store.js"
-import { getPosts } from "../redux/Slice/postsSlice.ts"
-import Loading from "./loading.tsx"
+import { getPosts } from "../redux/Slice/postsSlice"
+import Loading from "./loading"
 import { useRouter } from "next/navigation.js"
-import PostDetails from "./_Components/postdetails/PostDetails.tsx"
+import PostDetails from "./_Components/postdetails/PostDetails"
 import { Container } from "@mui/material"
 import { Post } from "../interfaces/postinterface.js"
 

@@ -1,5 +1,4 @@
 'use client';
-
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
@@ -9,7 +8,7 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import ShareIcon from '@mui/icons-material/Share';
@@ -21,28 +20,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Post } from '../../../interfaces/postinterface';
 
-interface ExpandMoreProps extends IconButtonProps {
-  $expanded: boolean;
-}
+const ExpandMore = styled(IconButton)<{ expanded: boolean }>(
+  ({ theme, expanded }) => ({
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+    transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
+  })
+);
 
-const ExpandMore = styled((props: ExpandMoreProps) => {
-  const { $expanded, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, $expanded }) => ({
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-  transform: $expanded ? 'rotate(180deg)' : 'rotate(0deg)',
-}));
-
-export default function PostDetails({
-  postD,
-  allComments = false,
-}: {
+interface Props {
   postD: Post;
   allComments?: boolean;
-}) {
+}
+
+export default function PostDetails({ postD, allComments = false }: Props) {
   const [expanded, setExpanded] = React.useState(false);
 
   return (
@@ -53,8 +46,8 @@ export default function PostDetails({
             <Image
               src={postD.user.photo}
               alt={postD.user.name}
-              height={40}
               width={40}
+              height={40}
             />
           </Avatar>
         }
@@ -90,8 +83,8 @@ export default function PostDetails({
         </IconButton>
 
         <ExpandMore
-          $expanded={expanded}
-          onClick={() => setExpanded(!expanded)}
+          expanded={expanded}
+          onClick={() => setExpanded((prev) => !prev)}
         >
           <CommentIcon />
         </ExpandMore>
@@ -101,7 +94,12 @@ export default function PostDetails({
         </IconButton>
       </CardActions>
 
-      <Collapse in={expanded} timeout="auto" unmountOnExit sx={{ bgcolor: '#eee' }}>
+      <Collapse
+        in={expanded}
+        timeout="auto"
+        unmountOnExit
+        sx={{ bgcolor: '#eee' }}
+      >
         {(allComments ? postD.comments : postD.comments.slice(0, 1)).map(
           (comment) => (
             <CardContent key={comment._id}>
@@ -111,8 +109,8 @@ export default function PostDetails({
                     <Image
                       src={comment.commentCreator.photo}
                       alt={comment.commentCreator.name}
-                      height={40}
                       width={40}
+                      height={40}
                     />
                   </Avatar>
                 }

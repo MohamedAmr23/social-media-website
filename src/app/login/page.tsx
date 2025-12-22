@@ -20,27 +20,11 @@ export default function Login() {
     email: "",
     password: "",
   };
-  // async function onSubmit(values:LoginData){
-  //   const { data } = await axios.post(`https://linked-posts.routemisr.com/users/signin`,values)
-  //   console.log( data )
-  // }
   const dispatch = useDispatch<storeDispatch>();
-  const { token, isLoading, error, isSuccess } = useSelector(
+  const { token, isLoading} = useSelector(
     (state: storeState) => state.authReducer
   );
   const { push } = useRouter();
-  // const { handleSubmit, handleChange, values } = useFormik({
-  //   initialValues,
-  //   onSubmit: async (values) => {
-  //     await dispatch(login(values));
-  //     if (token) {
-  //       push("/");
-  //     } else {
-  //       toast.error(error);
-  //       console.log(error);
-  //     }
-  //   },
-  // });
   const { handleSubmit, handleChange, values } = useFormik({
     initialValues,
     onSubmit: async (values) => {

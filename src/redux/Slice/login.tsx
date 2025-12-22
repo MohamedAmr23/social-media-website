@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { LoginData } from "../../interfaces/login.js";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 
 interface AuthState {
   token: string | null;
@@ -16,7 +16,6 @@ const initialState: AuthState = {
   isSuccess: false,
 }
 
-// Async thunk
 export const login = createAsyncThunk<
   { token: string; error?: string }, // Return type
   LoginData,                         // Argument type
@@ -27,17 +26,16 @@ export const login = createAsyncThunk<
     try {
       const { data } = await axios.post(`https://linked-posts.routemisr.com/users/signin`, values);
       return data;
-    } catch (err) {
+    } catch (err: unknown) {
       let errorMessage = 'Unknown error';
       if (axios.isAxiosError(err) && err.response) {
-        errorMessage = (err.response.data as any).error || 'Unknown error';
+        errorMessage = (err.response.data as { error?: string }).error || 'Unknown error';
       }
       return rejectWithValue(errorMessage);
     }
   }
 );
 
-// Slice
 const authSlice = createSlice({
   name: 'auth',
   initialState,

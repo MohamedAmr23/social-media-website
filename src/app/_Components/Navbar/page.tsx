@@ -10,11 +10,9 @@ import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
+import NotificationsIcon from '@mui/icons-material/Notifications';;
 import { useRouter } from 'next/navigation.js';
 import Link from 'next/link.js';
 
@@ -77,7 +75,6 @@ export default function Navbar() {
   function logOut(){
     localStorage.removeItem('token')
     router.push('/login')
-    handleMenuClose()
   }
   const handleMenuClose = (path:string) => {
     router.push(path)
@@ -85,9 +82,6 @@ export default function Navbar() {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (

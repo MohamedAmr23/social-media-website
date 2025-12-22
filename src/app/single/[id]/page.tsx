@@ -14,7 +14,7 @@ const SinglePost = ({params:{id}}:{params:{id:string}}) => {
 
     useEffect(()=>{
         dispatch(getSinglePost(id))
-    },[])
+    },[dispatch,id])
   return (
     <>
      {isLoading ? <Loading/> : post?<PostDetails postD={post} allComments={true}/>:''}

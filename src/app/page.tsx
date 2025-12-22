@@ -13,13 +13,13 @@ export default function Home(){
   const {push} = useRouter()
   const dispatch =useDispatch<storeDispatch>()
   const {posts , isLoading} = useSelector((state:storeState)=>state.postReducer)
-  useEffect(()=>{
-    if(!localStorage.getItem('token')){
-      push('/login')
-    }else{
-      dispatch(getPosts())
-    }
-  },[])
+ useEffect(() => {
+  if (!localStorage.getItem('token')) {
+    push('/login');
+  } else {
+    dispatch(getPosts());
+  }
+}, [dispatch, push]); 
   return (
     <>
     {isLoading?<Loading/>:<Container maxWidth={'sm'}>

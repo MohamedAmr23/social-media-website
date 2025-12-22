@@ -9,14 +9,6 @@ const initialState={
     isSuccess:false
 
 }
-// export const login = createAsyncThunk('auth/login',async(values:LoginData)=>{
-//    try{
-//     const { data } = await axios.post(`https://linked-posts.routemisr.com/users/signin`,values)
-//     return data
-//    }catch(err:any){
-//     return err.response.data.error
-//    }
-// })
 export const login = createAsyncThunk('auth/login', async (values: LoginData, { rejectWithValue }) => {
     try {
       const { data } = await axios.post(`https://linked-posts.routemisr.com/users/signin`, values);

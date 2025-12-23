@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Post } from "../../interfaces/postinterface.js";
 import axios from "axios";
-const initialState:{posts:Post[] , isLoading:boolean ,post:Post} = {post:null,posts:[],isLoading:false}
+const initialState:{posts:Post[] , isLoading:boolean ,post:Post|null} = {post:null,posts:[],isLoading:false}
 const headers = {token : localStorage.getItem('token')}
 export const getPosts = createAsyncThunk('posts/getPosts',async()=>{
     const {data} = await axios.get('https://linked-posts.routemisr.com/posts?limit=50',{

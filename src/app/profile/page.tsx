@@ -20,18 +20,25 @@ const VisuallyHiddenInput = styled('input')({
 
 const Profile = () => {
 
-  async function addPost(values: FormData): Promise<void> {
-    await axios.post(
-      'https://linked-posts.routemisr.com/posts',
-      values,
-      {
-        headers: {
-          token: localStorage.getItem('token') || ''
-        }
-      }
-    )
-    toast.success('Posted Successfully')
-  }
+  async function addPost(values: FormData) {
+  if (typeof window === 'undefined') return;
+
+  const token = localStorage.getItem('token');
+
+  const { data } = await axios.post(
+    'https://linked-posts.routemisr.com/posts',
+    values,
+    {
+      headers: {
+        token,
+      },
+    }
+  );
+
+  toast.success('Posted Successfully');
+  console.log(data);
+}
+
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
